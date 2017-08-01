@@ -56,7 +56,7 @@ class Student:
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
         for i in jsonData:
-            if jsonData[i]["adi"] == name and jsonData[i]["soyadi"] == surname:
+            if jsonData[i]["adi"].lower() == name.lower() and jsonData[i]["soyadi"].lower() == surname.lower():
                 del jsonData[i]
                 break
             else:
@@ -68,7 +68,7 @@ class Student:
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
         for i in jsonData:
-            if jsonData[i]["adi"] == name and jsonData[i]["soyadi"] == surname:
+            if jsonData[i]["adi"].lower() == name.lower() and jsonData[i]["soyadi"].lower() == surname.lower():
                 print("Adı:",jsonData[i]["adi"],"\nSoyadı:",jsonData[i]["soyadi"],"\nYaşadığı Şehit:",jsonData[i]["sehir"],
                       "\nOkul:",jsonData[i]["okul"],"\nMail:",jsonData[i]["mail"],"\nTelefon:",jsonData[i]["tel"],
                       "\nDoğum Tarihi:",jsonData[i]["dogum_tarihi"])
@@ -81,7 +81,7 @@ class Student:
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
         for i in jsonData:
-            if jsonData[i]["adi"] == name and jsonData[i]["soyadi"] == surname:
+            if jsonData[i]["adi"].lower() == name.lower() and jsonData[i]["soyadi"].lower() == surname.lower():
                 jsonData[i] = data
                 break
             else:
@@ -93,10 +93,10 @@ class Student:
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
         for i in jsonData:
+            print("\n","#" * 40)
             print("Adı:", jsonData[i]["adi"], "\nSoyadı:", jsonData[i]["soyadi"], "\nYaşadığı Şehit:",
                   jsonData[i]["sehir"],
                   "\nOkul:", jsonData[i]["okul"], "\nMail:", jsonData[i]["mail"], "\nTelefon:", jsonData[i]["tel"],
                   "\nDoğum Tarihi:", jsonData[i]["dogum_tarihi"])
             for a in range(len(jsonData[i]["egitim"])):
                 print("Eğitim:", jsonData[i]["egitim"][a])
-            print("#"*40)
