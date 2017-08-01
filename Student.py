@@ -100,7 +100,3 @@ class Student:
             for a in range(len(jsonData[i]["egitim"])):
                 print("Eğitim:", jsonData[i]["egitim"][a])
             print("#"*40)
-
-if __name__ == "__main__":
-    student = Student()
-    student.allStudent()
