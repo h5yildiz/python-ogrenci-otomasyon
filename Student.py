@@ -55,7 +55,7 @@ class Student:
     def deleteStudent(self, name, surname):
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
-        for i in jsonData:
+        for i in jsonData.keys():
             if jsonData[i]["adi"].lower() == name.lower() and jsonData[i]["soyadi"].lower() == surname.lower():
                 del jsonData[i]
                 break
@@ -67,7 +67,7 @@ class Student:
     def viewStudent(self, name, surname):
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
-        for i in jsonData:
+        for i in jsonData.keys():
             if jsonData[i]["adi"].lower() == name.lower() and jsonData[i]["soyadi"].lower() == surname.lower():
                 print("Adı:",jsonData[i]["adi"],"\nSoyadı:",jsonData[i]["soyadi"],"\nYaşadığı Şehit:",jsonData[i]["sehir"],
                       "\nOkul:",jsonData[i]["okul"],"\nMail:",jsonData[i]["mail"],"\nTelefon:",jsonData[i]["tel"],
@@ -80,7 +80,7 @@ class Student:
     def updateStudent(self,name, surname, data):
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
-        for i in jsonData:
+        for i in jsonData.keys():
             if jsonData[i]["adi"].lower() == name.lower() and jsonData[i]["soyadi"].lower() == surname.lower():
                 jsonData[i] = data
                 break
@@ -92,7 +92,7 @@ class Student:
     def allStudent(self):
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
-        for i in jsonData:
+        for i in jsonData.keys():
             print("\n","#" * 40)
             print("Adı:", jsonData[i]["adi"], "\nSoyadı:", jsonData[i]["soyadi"], "\nYaşadığı Şehit:",
                   jsonData[i]["sehir"],
