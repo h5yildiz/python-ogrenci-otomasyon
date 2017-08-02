@@ -1,5 +1,4 @@
 import json
-import os
 
 class Student:
     def __init__(self):
@@ -72,6 +71,7 @@ class Student:
                 break
             else:
                 continue
+
     def updateStudent(self,name, surname, data):
         readData = self.readFile("stdData.json")
         jsonData = self.jsonToDict(readData)
