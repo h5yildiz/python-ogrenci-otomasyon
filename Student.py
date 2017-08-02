@@ -25,13 +25,13 @@ class Student:
 
     def readFile(self, filePath):
         # Dosyayı okuyup içeriğini geri döndürecek
-        data = None
-        if not self.is_non_zero_file(filePath):
+        try:
+            f = open(filePath, "r")
+            data = f.read()
+            f.close()
             return data
-        f = open(filePath,"r")
-        data = f.read()
-        f.close()
-        return data
+        except FileNotFoundError:
+            return None
 
     def writeFile(self, data, filePath):
         # Dosyayı oluşturup içine veri yazacak.
@@ -46,11 +46,6 @@ class Student:
         lastDict[self.count] = dct
         newJson = self.dictToJson(lastDict)
         self.writeFile(newJson, "stdData.json")
-
-    def is_non_zero_file(self,filePath):
-        if os.path.isfile(filePath) and os.path.getsize(filePath) > 0:
-            return True
-        return False
 
     def deleteStudent(self, name, surname):
         readData = self.readFile("stdData.json")
